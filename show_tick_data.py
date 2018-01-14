@@ -17,9 +17,8 @@ PAUSE = 10
 RETRY = 10000
 
 
-cursor = db.tickdata.find({'code': '600077', 'date': '2018-01-12'})
+cursor = db.tickdata.find({'code': '002117', 'date': '2017-11-02'})
 
 data = mongo_utils.convert_cursor_to_dataframe(cursor)
 
 print data
-

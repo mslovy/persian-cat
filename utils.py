@@ -23,6 +23,9 @@ class Mongo:
     def convert_cursor_to_dataframe(col):
         json_data = dumps(col)
         data = json.loads(json_data)
+        if len(data) == 0:
+            return pd.DataFrame()
+
         data = data[0]['record']
         data = pd.DataFrame(data)
         return data

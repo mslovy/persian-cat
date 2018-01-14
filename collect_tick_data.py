@@ -12,12 +12,16 @@ db = client.stock
 col = db.tickdata
 
 start_date = Date(2018,1,12)
-end_date = Date(2017,12,1)
+end_date = Date(2017,10,1)
 
 PAUSE = 10
 RETRY = 10000
 
-for code in stock_utils.get_all_stock_id():
+stock_list = stock_utils.get_all_stock_id()
+count = len(stock_list)
+for code in stock_list:
+    print "There is " + str(count) + " left to processing"
+    count = count - 1
     date = start_date
     while True:
         if not stock_utils.is_trade_day(date):
